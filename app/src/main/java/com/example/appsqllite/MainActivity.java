@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     private void loadUserData() {
         userDataList = new ArrayList<>();
         selectedUserDataId = -1;
-        String query = "SELECT ud.id, u.name, u.nama_ayah, u.nama_ibu, k1.name AS tempat_tinggal, k2.name AS tempat_lahir, h.name AS hobby " +
+        String query = "SELECT ud.id, u.name, u.nama_ayah, u.nama_ibu, u.tanggal_lahir, u.jurusan,   k1.name AS tempat_tinggal, k2.name AS tempat_lahir, h.name AS hobby " +
                 "FROM user_data ud " +
                 "JOIN user u ON ud.user_id = u.id " +
                 "JOIN kota k1 ON ud.tempat_tinggal = k1.id " +
@@ -108,9 +108,11 @@ public class MainActivity extends AppCompatActivity {
                         + "\nNama: " + cursor.getString(1)
                         + "\nNama Ayah: " + cursor.getString(2)
                         + "\nNama Ibu: " + cursor.getString(3)
-                        + "\nTinggal: " + cursor.getString(4)
-                        + "\nLahir: " + cursor.getString(5)
-                        + "\nHobi: " + cursor.getString(6);
+                        + "\nTanggal Lahir: " + cursor.getString(4)
+                        + "\nJurusan: " + cursor.getString(5)
+                        + "\nTinggal: " + cursor.getString(6)
+                        + "\nLahir: " + cursor.getString(7)
+                        + "\nHobi: " + cursor.getString(8);
                 userDataList.add(item);
             } while (cursor.moveToNext());
         }
